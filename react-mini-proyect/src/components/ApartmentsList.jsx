@@ -15,6 +15,9 @@ function ApartmentsList() {
         
         <div className="apartment-list">
             {apartmentsToDisplay.map((apartment) => {
+                const price = apartment.price
+                ? parseFloat(apartment.price.replace("$", ""))
+                : 0;
                 return(
                     <div key={apartment.id} className="apartment-card">
                     <img
@@ -27,10 +30,10 @@ function ApartmentsList() {
                         <strong>Price:</strong> {apartment.price} €
                     </h3>
                     <div className="labels">
-                        {apartment.price < 100 && (
-                            <span className="label affordable">💵 Asequible</span>
+                        {price < 100 && (
+                            <span className="label affordable">💵 Affordable</span>
                         )}
-                        {apartment.price >= 100 && (
+                        {price >= 100 && (
                             <span className="label premium">💎 Premium</span>
                         )}
                         {apartment.instant_bookable && (
