@@ -1,6 +1,5 @@
 import React from 'react'
-import ApartmentCard from '../pages/ApartmentCard';
-import "./ApartmentsList.css";
+import ApartmentSummary from '../components/ApartmentSummary';
 
 function ApartmentsList(props) {
 
@@ -12,8 +11,9 @@ function ApartmentsList(props) {
                 ? parseFloat(apartment.price.replace("$", ""))
                 : 0;
                 return(
-                    <ApartmentCard 
+                    <ApartmentSummary 
                     key={apartment.id}
+                    price={price}
                     apartmentDetails={apartment}
                     callBackToDelete={props.callBackToDelete}
                     />

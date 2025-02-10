@@ -7,9 +7,9 @@ function Navbar () {
             <h1>This is the Navbar</h1>
             
         <nav>
-                <NavLink to="/ApartmentsList">Home</NavLink>
-                <NavLink to="/ApartmentCard">Details</NavLink>
-                <NavLink to="/About">About us</NavLink>
+                <NavLink to="/">Home</NavLink> |
+                <NavLink to="ApartmentsCard">Details</NavLink> |
+                <NavLink to="/About">About us</NavLink> |
         </nav>
         </header>
     )

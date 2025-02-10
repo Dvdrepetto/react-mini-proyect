@@ -1,26 +1,24 @@
 import React from 'react'
-import "./ApartmentsList.css";
+import { Link } from 'react-router-dom'
 
-function ApartmentCard(props) {
-
-
+const ApartmentSummary = (props) => {
     return (
         <div>
             <div key={props.apartmentDetails.id} className="apartment-card">
                 <img
                     src={props.apartmentDetails.picture_url}
-                    alt={`Imagen de ${props.apartmentDetails.title}`}
+                    alt={`Imagen de ${props.apartmentDetails.name}`}
                     className="apartment-image"
                 />
-                <h2 className="apartment-title">{props.apartmentDetails.title}</h2>
+                <h2 className="apartment-title">{props.apartmentDetails.name}</h2>
                 <h3>
-                    <strong>Price:</strong> {props.apartmentDetails.price} €
+                    <strong>Price:</strong> {props.price} €
                 </h3>
                 <div className="labels">
-                    {props.apartmentDetails.price < 100 && (
+                    {props.price < 100 && (
                         <span className="label affordable">💵 Affordable</span>
                     )}
-                    {props.apartmentDetails.price >= 100 && (
+                    {props.price >= 100 && (
                         <span className="label premium">💎 Premium</span>
                     )}
                     {props.apartmentDetails.instant_bookable && (
@@ -28,15 +26,17 @@ function ApartmentCard(props) {
                     )}
                     <button
                         className="delete-button"
-                        onClick={() => {props.callBackToDelete(props.apartmentDetails.id)}}
+                        onClick={() => { props.callBackToDelete(props.apartmentDetails.id) }}
                     >
                         Delete
                     </button>
+                        <Link to={`/ApartmentsCard/${props.apartmentDetails.id}`}><button>More Details</button></Link>
+                    
                 </div>
-                
+
             </div>
         </div>
     )
 }
 
-export default ApartmentCard;
+export default ApartmentSummary

@@ -6,6 +6,8 @@ import { Route, Routes } from "react-router-dom";
 import ApartmentsList from './pages/ApartmentsList'
 import apartmentsData from './Data/Apartments.json'
 import Navbar from './components/Navbar'
+import ApartmentCard from './components/ApartmentCard';
+import About from './pages/About';
 
 function App() {
 
@@ -21,9 +23,12 @@ function App() {
       <Navbar/>
       <Routes>
       <Route path="/" element={<ApartmentsList apartmentArr={apartmentsToDisplay} callBackToDelete={deleteApartment}/>}/>
+      <Route path="/ApartmentsCard/:apartmentId" element={<ApartmentCard apartmentArr={apartmentsToDisplay}/>}/>
       <Route path="/Sidebar" element={<Sidebar/>}/>
+      <Route path="/Navbar" element={<Navbar apartmentArr={apartmentsToDisplay}/>}/>
       <Route path="/Footer" element={<Footer/>}/>
       <Route path="*" element={<Error />} />
+      <Route path="/About" element={<About />} />
       </Routes>
     </>
   )
