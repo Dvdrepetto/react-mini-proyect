@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const ApartmentSummary = (props) => {
     return (
-        <div>
+        <div >
             <div key={props.apartmentDetails.id} className="apartment-card">
                 <img
                     src={props.apartmentDetails.picture_url}

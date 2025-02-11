@@ -8,6 +8,7 @@ import apartmentsData from './Data/Apartments.json'
 import Navbar from './components/Navbar'
 import ApartmentCard from './components/ApartmentCard';
 import About from './pages/About';
+import Details from './pages/Details'
 
 function App() {
 
@@ -19,23 +20,23 @@ const[name, setName] = useState("");
     setApartments(updatedApartments);
 };
 
-
+const newId = apartmentsToDisplay.length;
+const UniqueId = newId + 1;
 
 const handleSubmit = (event) => {
   event.preventDefault();
 
   const newApartment = {
       name: name,
+      id: UniqueId,
   }
 
   const newList = [newApartment, ...apartmentsToDisplay];
-
-  console.log(newList)
   setApartments(newList);
 }
   return (
     <>
-      <Navbar numberOfApartments={apartmentsToDisplay.length} />
+      <Navbar apartmentArr={apartmentsToDisplay} />
       <section className='form'>
         <form onSubmit={handleSubmit}>
           <input 
@@ -52,10 +53,10 @@ const handleSubmit = (event) => {
       <Route path="/" element={<ApartmentsList apartmentArr={apartmentsToDisplay} callBackToDelete={deleteApartment}/>}/>
       <Route path="/ApartmentsCard/:apartmentId" element={<ApartmentCard apartmentArr={apartmentsToDisplay}/>}/>
       <Route path="/Sidebar" element={<Sidebar/>}/>
-      <Route path="/Navbar" element={<Navbar apartmentArr={apartmentsToDisplay}/>}/>
       <Route path="/Footer" element={<Footer/>}/>
       <Route path="*" element={<Error />} />
       <Route path="/About" element={<About />} />
+      <Route path="/Details" element={<Details/>}/>
       </Routes>
     </>
   )
