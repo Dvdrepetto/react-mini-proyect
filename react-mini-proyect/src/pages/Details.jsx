@@ -1,7 +1,7 @@
 import React from 'react'
 import apartmentArr from "../Data/Apartments.json"
 import {useState} from "react"
-import  "../index.css"
+import "../pages/Details.css"
 
 function Details() {
     const [apptlisting, setAppartment] = useState(apartmentArr);
@@ -9,11 +9,15 @@ function Details() {
     return (
         <div>
             <h3>Total number of listings: {apptlisting.length}</h3>
-            <div className="apartment-card">
+            <div className="AppartmentListing-Border">
                 {apptlisting.map((Appt) => {
                     return (
                         <div key={Appt.id}>
-                            <img src={Appt.picture_url} alt="apartment-image-card" />
+                            <img
+                    src={Appt.picture_url}
+                    alt={`Imagen de ${Appt.title}`}
+                    className="apartment-image-card"
+                />
                             <p className="wrap-text">
                                 {Appt.name} <br />
                                 {Appt.price} <br />

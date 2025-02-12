@@ -1,6 +1,7 @@
 import React from 'react'
 import ApartmentSummary from '../components/ApartmentSummary';
 
+
 function ApartmentsList(props) {
     
     return (
@@ -11,14 +12,13 @@ function ApartmentsList(props) {
                 ? parseFloat(apartment.price.replace("$", ""))
                 : 0;
                 return(
+                    <div key={apartment.id}>
                     <ApartmentSummary 
-                    key={apartment.id}
                     price={price}
                     apartmentDetails={apartment}
                     callBackToDelete={props.callBackToDelete}
-
                     />
-                    
+                    </div>
                 )
             })}
         </div>

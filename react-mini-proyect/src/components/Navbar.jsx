@@ -12,7 +12,7 @@ function Navbar (props) {
                 <NavLink to="/About">About us</NavLink> |
         </nav>
         <h1>This is the Navbar</h1>
-            <h2>Number of movies: {props.apartmentArr.length}</h2>
+            <h2>Number of Apartments: {props.apartmentArr.length}</h2>
         
         </header>
     )
