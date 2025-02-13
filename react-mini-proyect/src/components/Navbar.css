@@ -1,0 +1,51 @@
+header {
+    background-color: #1e293b; /* Fondo oscuro */
+    color: #f8fafc; /* Texto claro */
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem; /* Espacio entre los enlaces */
+    margin-bottom: 1rem;
+  }
+  
+  nav a {
+    color: #f8fafc; /* Color del texto */
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s ease; /* Transición suave para el hover */
+  }
+  
+  nav a:hover {
+    color: #38bdf8; /* Azul claro en hover */
+  }
+  
+  nav a.active {
+    color: #0ea5e9; /* Azul más oscuro para el enlace activo */
+    border-bottom: 2px solid #0ea5e9; /* Subrayado */
+    padding-bottom: 2px;
+  }
+  
+  h1, h2 {
+    text-align: center;
+    margin: 0;
+    font-weight: 600;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  h2 {
+    font-size: 1.2rem;
+    color: #cbd5e1; /* Gris claro */
+  }

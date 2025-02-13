@@ -1,7 +1,6 @@
 import React from 'react'
 import apartmentArr from "../Data/Apartments.json"
 import {useState} from "react"
-import "../pages/Details.css"
 
 function Details() {
     const [apptlisting, setAppartment] = useState(apartmentArr);

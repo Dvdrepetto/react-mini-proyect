@@ -1,5 +1,4 @@
 import './App.css'
-import { Footer } from './components/Footer'
 import { useState } from 'react'
 import { Route, Routes } from "react-router-dom";
 import ApartmentsList from './pages/ApartmentsList'
@@ -14,6 +13,7 @@ function App() {
 const [allApartments] = useState(apartmentsData);
 const [apartmentsToDisplay, setApartments] = useState(apartmentsData);
 const[name, setName] = useState("");
+const[price, setPrice] = useState("");
 
   const deleteApartment = (id) => {
     const updatedApartments = apartmentsToDisplay.filter((apartment) => apartment.id !== id);
@@ -29,6 +29,7 @@ const handleSubmit = (event) => {
   const newApartment = {
       name: name,
       id: UniqueId,
+      price
   }
   const newList = [newApartment, ...apartmentsToDisplay];
   setApartments(newList);
@@ -48,7 +49,6 @@ const handleSearch = (input) => {
   return (
     <>
       <Navbar apartmentArr={apartmentsToDisplay} />
-      
       <section className='form'>
       <Search onSearch={handleSearch}/>
         <form onSubmit={handleSubmit}>
@@ -59,13 +59,20 @@ const handleSearch = (input) => {
           value={name}
           onChange={(e) => { setName(e.target.value) }}
           />
+          <input 
+          type="price" 
+          name='name' 
+          placeholder='Price'
+          value={price}
+          onChange={(e) => { setPrice(e.target.value) }}
+          />
           <button>Submit</button>
+          
         </form>
       </section>
       <Routes>
       <Route path="/" element={<ApartmentsList apartmentArr={apartmentsToDisplay} callBackToDelete={deleteApartment}/>}/>
       <Route path="/ApartmentsCard/:apartmentId" element={<ApartmentCard apartmentArr={apartmentsToDisplay}/>}/>
-      <Route path="/Footer" element={<Footer/>}/>
       <Route path="*" element={<Error />} />
       <Route path="/About" element={<About />} />
       <Route path="/Details" element={<Details/>}/>
